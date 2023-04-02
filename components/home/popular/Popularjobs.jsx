@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   FlatList,
 } from "react-native";
+import useFetch from "../../../hook/useFetch"
 
 import styles from "./popularjobs.style";
 import { isLoading } from "expo-font";
