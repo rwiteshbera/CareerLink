@@ -16,8 +16,12 @@ import PopularJobCard from "../../common/cards/popular/PopularJobCard";
 
 const Popularjobs = () => {
   const router = useRouter();
-  const isLoading = false;
-  const error = false;
+
+  const {data, isLoading, error} = useFetch('search', {
+    query: 'React Developer',
+    page: '1',
+    num_pages: '1'
+  })
 
   return (
     <View style={styles.container}>

@@ -12,7 +12,7 @@ const useFetch = (endpoint, query) => {
 
     const options = {
         method: 'GET',
-        url: `https://jsearch.p.rapidapi.com/search/${endpoint}`,
+        url: `https://jsearch.p.rapidapi.com/${endpoint}`,
         headers: {
             'X-RapidAPI-Key': j_SEARCH_KEY,
             'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
@@ -24,11 +24,11 @@ const useFetch = (endpoint, query) => {
         setIsLoading(true);
         try {
             const response = await axios.request(options);
-            setData(response.data);
+            setData(response.data?.data);
             setIsLoading(false)
         } catch (error) {
             setError(error);
-            alert("There is an error");
+            alert(error);
         } finally {
             setIsLoading(false);
         }
@@ -45,3 +45,5 @@ const useFetch = (endpoint, query) => {
 
     return { data, isLoading, error, refetch };
 }
+
+export default useFetch;
